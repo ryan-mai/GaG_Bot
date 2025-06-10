@@ -18,8 +18,8 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-USER_ID = DISCORD_ID
-CHANNEL_ID = DISCORD_CHANNEL_ID
+USER_ID = 425747134646583297
+CHANNEL_ID = 1381739845273255976
 
 @bot.event
 async def on_ready():
