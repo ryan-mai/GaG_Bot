@@ -18,8 +18,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-USER_ID = 425747134646583297
-CHANNEL_ID = 1381739845273255976
+USER_ID = 425747134646583297  # <-- Place this near your TOKEN
 
 @bot.event
 async def on_ready():
@@ -127,7 +126,7 @@ async def run_stock_tasks(channel):
 async def stock_loop():
     global last_output
     await bot.wait_until_ready()
-    channel_id = CHANNEL_ID  # Replace with your channel ID
+    channel_id = 1381738886371475578  # Replace with your channel ID
     channel = bot.get_channel(channel_id)
     if not channel:
         print("Channel not found!")
