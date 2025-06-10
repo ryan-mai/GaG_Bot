@@ -7,6 +7,8 @@ import asyncio
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 import os
+from flask import Flask
+from threading import Thread
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -194,4 +196,23 @@ def save_keywords(keywords):
         for word in keywords:
             f.write(f"{word}\n")
 
-bot.run(TOKEN)
+# --- Keep Alive Section ---
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "I'm alive!", 200
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.daemon = True
+    t.start()
+
+# --- End Keep Alive Section ---
+
+if __name__ == "__main__":
+    keep_alive()
+    bot.run(TOKEN)
