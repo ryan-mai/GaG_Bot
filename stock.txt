@@ -1,3 +1,6 @@
+----------------------------------------------------------------------
+!!! NO LONGER WORKS - CANNOT WEB SCRAPE BECAUSE THEY ADDED CAPTCHA !!!
+----------------------------------------------------------------------
 import discord
 from discord.ext import commands
 import requests
